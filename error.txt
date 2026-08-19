@@ -1,3 +1,9 @@
+root@prover-vm:~/dnp3_master# python3 -c "
+> from pydnp3 import opendnp3
+> help(opendnp3.ISOEHandler)
+> help(opendnp3.ITransactable)
+> " > /tmp/soehandler_help.txt 2>&1
+root@prover-vm:~/dnp3_master# cat /tmp/soehandler_help.txt 
 Help on class ISOEHandler in module pydnp3.opendnp3:
 
 class ISOEHandler(ITransactable)
@@ -17,4 +23,76 @@ class ISOEHandler(ITransactable)
  |      Process(*args, **kwargs)
  |      Overloaded function.
  |      
- |      1. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.Head:
+ |      1. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinary) -> None
+ |      
+ |      2. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedDoubleBitBinary) -> None
+ |      
+ |      3. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalog) -> None
+ |      
+ |      4. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedCounter) -> None
+ |      
+ |      5. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedFrozenCounter) -> None
+ |      
+ |      6. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinaryOutputStatus) -> None
+ |      
+ |      7. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalogOutputStatus) -> None
+ |      
+ |      8. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedOctetString) -> None
+ |      
+ |      9. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedTimeAndInterval) -> None
+ |      
+ |      10. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinaryCommandEvent) -> None
+ |      
+ |      11. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalogCommandEvent) -> None
+ |      
+ |      12. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedSecurityStat) -> None
+ |      
+ |      13. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionDNPTime) -> None
+ |  
+ |  __init__(...)
+ |      __init__(self: pydnp3.opendnp3.ISOEHandler) -> None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from ITransactable:
+ |  
+ |  End(...)
+ |      End(self: pydnp3.opendnp3.ITransactable) -> None
+ |  
+ |  Start(...)
+ |      Start(self: pydnp3.opendnp3.ITransactable) -> None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from pybind11_builtins.pybind11_object:
+ |  
+ |  __new__(*args, **kwargs) from pybind11_builtins.pybind11_type
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+Help on class ITransactable in module pydnp3.opendnp3:
+
+class ITransactable(pybind11_builtins.pybind11_object)
+ |  Something that can be performed atomically or needing Start()/End() signals.
+ |  
+ |  Method resolution order:
+ |      ITransactable
+ |      pybind11_builtins.pybind11_object
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  End(...)
+ |      End(self: pydnp3.opendnp3.ITransactable) -> None
+ |  
+ |  Start(...)
+ |      Start(self: pydnp3.opendnp3.ITransactable) -> None
+ |  
+ |  __init__(...)
+ |      __init__(self: pydnp3.opendnp3.ITransactable) -> None
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from pybind11_builtins.pybind11_object:
+ |  
+ |  __new__(*args, **kwargs) from pybind11_builtins.pybind11_type
+ |      Create and return a new object.  See help(type) for accurate signature.
+
+root@prover-vm:~/dnp3_master# 
+
