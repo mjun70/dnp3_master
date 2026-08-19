@@ -1,4 +1,5 @@
-// DNP3 Master (Client) example using OpenDNP3
+// DNP3 Master (Client) example using OpenDNP3 (matches the 3.x / "release"
+// branch API as of 2026).
 //
 // Connects to an outstation over TCP, performs periodic integrity polls,
 // and prints all received measurements to the console.
@@ -19,17 +20,16 @@
 // If the outstation never responds, try swapping local/remote:
 //   dnp3_master 30.30.0.3 20000 1 2 30
 
+#include <opendnp3/ConsoleLogger.h>
 #include <opendnp3/DNP3Manager.h>
 #include <opendnp3/channel/PrintingChannelListener.h>
 #include <opendnp3/logging/LogLevels.h>
 #include <opendnp3/master/DefaultMasterApplication.h>
 #include <opendnp3/master/PrintingSOEHandler.h>
 
-#include <chrono>
 #include <cstdlib>
 #include <iostream>
 #include <string>
-#include <thread>
 
 using namespace std;
 using namespace opendnp3;
@@ -56,20 +56,22 @@ int main(int argc, char** argv)
          << "  Remote (outsta): " << remoteAddr << "\n"
          << "  Poll interval:   " << pollSeconds << "s\n\n";
 
+    // Log levels to use. NORMAL is warnings and above; ALL_APP_COMMS adds
+    // application-layer traffic logging, useful while debugging addressing.
+    const auto logLevels = levels::NORMAL | levels::ALL_APP_COMMS;
+
     // 1) Create the manager. The first argument is the number of threads
     //    used to service the underlying ASIO event loop.
-    const uint32_t FILTERS = levels::NORMAL | levels::ALL_COMMS;
     DNP3Manager manager(1, ConsoleLogger::Create());
 
     // 2) Create a TCP client channel. This is the outer "communication link"
     //    (Freya's "Communication Mode: TCP_IP_MODE" equivalent).
     auto channel = manager.AddTCPClient(
         "tcp-client",
-        FILTERS,
+        logLevels,
         ChannelRetry::Default(),
-        ip,
+        {IPEndpoint(ip, port)},
         "0.0.0.0", // local adapter to bind, 0.0.0.0 = any
-        port,
         PrintingChannelListener::Create());
 
     // 3) Configure the master stack: link-layer addressing, timeouts, and
@@ -84,17 +86,10 @@ int main(int argc, char** argv)
     //              the outstation expects as its local address).
     config.link.LocalAddr = localAddr;
     config.link.RemoteAddr = remoteAddr;
-    config.link.KeepAliveTimeout = TimeDuration::Seconds(60);
-    config.link.Timeout = TimeDuration::Seconds(2);
 
     // --- Master application layer settings ---
     config.master.responseTimeout = TimeDuration::Seconds(5);
     config.master.disableUnsolOnStartup = true;
-    config.master.startupIntegrityClassMask = ClassField::AllClasses();
-
-    // --- Periodic integrity poll (Class 0/1/2/3), similar to Freya's
-    //     "Integratity Poll Interval - class 0,1,2,3" field ---
-    config.master.tasks.startupIntegrityClassMask = ClassField::AllClasses();
 
     // 4) Add the master to the channel.
     //    PrintingSOEHandler prints every received measurement (analog,
@@ -106,10 +101,11 @@ int main(int argc, char** argv)
         DefaultMasterApplication::Create(),
         config);
 
-    // 5) Schedule a recurring integrity poll (Class 0 read = full static
-    //    data poll), equivalent to Freya's periodic integrity poll.
-    auto integrityPoll = master->AddScan(
-        Header::AllObjects(GroupVariation::Group60Var1), // Class 0 - static data
+    // 5) Schedule a recurring integrity poll (Class 0/1/2/3), equivalent to
+    //    Freya's "Integratity Poll Interval - class 0,1,2,3" field. This
+    //    also performs the initial startup integrity poll once connected.
+    auto integrityScan = master->AddClassScan(
+        ClassField::AllClasses(),
         TimeDuration::Seconds(pollSeconds));
 
     // 6) Enable the master. This starts the connection attempt and, once
@@ -117,7 +113,7 @@ int main(int argc, char** argv)
     master->Enable();
 
     cout << "Master enabled. Press Enter to exit.\n";
-    cout << "Watching for 'LINK STATE' and comms in the console output above...\n\n";
+    cout << "Watching for link-layer and application-layer traffic in the console output above...\n\n";
 
     string line;
     getline(cin, line);
