@@ -106,7 +106,8 @@ int main(int argc, char** argv)
     //    also performs the initial startup integrity poll once connected.
     auto integrityScan = master->AddClassScan(
         ClassField::AllClasses(),
-        TimeDuration::Seconds(pollSeconds));
+        TimeDuration::Seconds(pollSeconds),
+        PrintingSOEHandler::Create());
 
     // 6) Enable the master. This starts the connection attempt and, once
     //    connected, performs the startup integrity poll automatically.
