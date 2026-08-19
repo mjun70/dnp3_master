@@ -1,0 +1,405 @@
+root@prover-vm:~/pydnp3# python3 setup.py install
+running install
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+/usr/lib/python3/dist-packages/setuptools/command/easy_install.py:146: EasyInstallDeprecationWarning: easy_install command is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+running bdist_egg
+running egg_info
+writing pydnp3.egg-info/PKG-INFO
+writing dependency_links to pydnp3.egg-info/dependency_links.txt
+writing requirements to pydnp3.egg-info/requires.txt
+writing top-level names to pydnp3.egg-info/top_level.txt
+reading manifest file 'pydnp3.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'pydnp3.egg-info/SOURCES.txt'
+installing library code to build/bdist.linux-x86_64/egg
+running install_lib
+running build_ext
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake build is: Release
+-- pybind11 v2.3.dev0
+CMake Deprecation Warning at deps/dnp3/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake build is: Release
+ASIO has been checked out as a git submodule: /root/pydnp3/deps/dnp3/deps/asio/asio/include
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/pydnp3/build/temp.linux-x86_64-cpython-311
+[  9%] Built target openpal
+[ 16%] Built target asiopal
+[ 87%] Built target opendnp3
+[ 97%] Built target asiodnp3
+[ 97%] Building CXX object CMakeFiles/pydnp3.dir/src/pydnp3.cpp.o
+[ 98%] Building CXX object CMakeFiles/pydnp3.dir/src/pydnp3asiodnp3.cpp.o
+In file included from /root/pydnp3/deps/pybind11/include/pybind11/cast.h:16,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/attr.h:13,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:43,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/stl.h:12,
+                 from /root/pydnp3/src/pydnp3.cpp:31:
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:82:33: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+   82 |     decltype(PyThread_create_key()) tstate = 0; // Usually an int but a long on Cygwin64 with Python 3.x
+      |              ~~~~~~~~~~~~~~~~~~~^~
+In file included from /usr/include/python3.11/Python.h:89,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/detail/common.h:111,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/pytypes.h:12,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/cast.h:13:
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:82:33: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+   82 |     decltype(PyThread_create_key()) tstate = 0; // Usually an int but a long on Cygwin64 with Python 3.x
+      |              ~~~~~~~~~~~~~~~~~~~^~
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h: In function ‘pybind11::detail::internals& pybind11::detail::get_internals()’:
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:167:27: warning: ‘void PyEval_InitThreads()’ is deprecated [-Wdeprecated-declarations]
+  167 |         PyEval_InitThreads();
+      |         ~~~~~~~~~~~~~~~~~~^~
+In file included from /usr/include/python3.11/Python.h:95:
+/usr/include/python3.11/ceval.h:132:37: note: declared here
+  132 | Py_DEPRECATED(3.9) PyAPI_FUNC(void) PyEval_InitThreads(void);
+      |                                     ^~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:169:52: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+  169 |         internals_ptr->tstate = PyThread_create_key();
+      |                                 ~~~~~~~~~~~~~~~~~~~^~
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:170:31: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+  170 |         PyThread_set_key_value(internals_ptr->tstate, tstate);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h: In function ‘std::string pybind11::detail::error_string()’:
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:36: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  441 |                 "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                    ^~
+In file included from /usr/include/python3.11/Python.h:42:
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:75: error: expected primary-expression before ‘>’ token
+  441 |         "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                                                   ^
+
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:77: error: expected primary-expression before ‘)’ token
+  441 |         "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                                                     ^
+
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:29: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  443 |                 handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                             ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:64: error: expected primary-expression before ‘>’ token
+  443 |              handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                                                             ^
+
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:66: error: expected primary-expression before ‘)’ token
+  443 |              handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                                                               ^
+
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:444:26: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  444 |             frame = frame->f_back;
+      |                          ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+In file included from /root/pydnp3/deps/pybind11/include/pybind11/cast.h:16,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/attr.h:13,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:43,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/stl.h:12,
+                 from /root/pydnp3/src/pydnp3asiodnp3.cpp:31:
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:82:33: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+   82 |     decltype(PyThread_create_key()) tstate = 0; // Usually an int but a long on Cygwin64 with Python 3.x
+      |              ~~~~~~~~~~~~~~~~~~~^~
+In file included from /usr/include/python3.11/Python.h:89,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/detail/common.h:111,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/pytypes.h:12,
+                 from /root/pydnp3/deps/pybind11/include/pybind11/cast.h:13:
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:82:33: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+   82 |     decltype(PyThread_create_key()) tstate = 0; // Usually an int but a long on Cygwin64 with Python 3.x
+      |              ~~~~~~~~~~~~~~~~~~~^~
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h: In function ‘pybind11::detail::internals& pybind11::detail::get_internals()’:
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:167:27: warning: ‘void PyEval_InitThreads()’ is deprecated [-Wdeprecated-declarations]
+  167 |         PyEval_InitThreads();
+      |         ~~~~~~~~~~~~~~~~~~^~
+In file included from /usr/include/python3.11/Python.h:95:
+/usr/include/python3.11/ceval.h:132:37: note: declared here
+  132 | Py_DEPRECATED(3.9) PyAPI_FUNC(void) PyEval_InitThreads(void);
+      |                                     ^~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:169:52: warning: ‘int PyThread_create_key()’ is deprecated [-Wdeprecated-declarations]
+  169 |         internals_ptr->tstate = PyThread_create_key();
+      |                                 ~~~~~~~~~~~~~~~~~~~^~
+/usr/include/python3.11/pythread.h:96:36: note: declared here
+   96 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_create_key(void);
+      |                                    ^~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/detail/internals.h:170:31: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+  170 |         PyThread_set_key_value(internals_ptr->tstate, tstate);
+      |         ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h: In function ‘std::string pybind11::detail::error_string()’:
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:36: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  441 |                 "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                    ^~
+In file included from /usr/include/python3.11/Python.h:42:
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:75: error: expected primary-expression before ‘>’ token
+  441 |                 "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                                                           ^
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:441:77: error: expected primary-expression before ‘)’ token
+  441 |                 "  " + handle(frame->f_code->co_filename).cast<std::string>() +
+      |                                                                             ^
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:29: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  443 |                 handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                             ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:64: error: expected primary-expression before ‘>’ token
+  443 |                 handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                                                                ^
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:443:66: error: expected primary-expression before ‘)’ token
+  443 |                 handle(frame->f_code->co_name).cast<std::string>() + "\n";
+      |                                                                  ^
+/root/pydnp3/deps/pybind11/include/pybind11/cast.h:444:26: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+  444 |             frame = frame->f_back;
+      |                          ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In constructor ‘pybind11::gil_scoped_acquire::gil_scoped_acquire()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1758:58: warning: ‘void* PyThread_get_key_value(int)’ is deprecated [-Wdeprecated-declarations]
+ 1758 |         tstate = (PyThreadState *) PyThread_get_key_value(internals.tstate);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:100:39: note: declared here
+  100 | Py_DEPRECATED(3.7) PyAPI_FUNC(void *) PyThread_get_key_value(int key);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1770:35: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1770 |             PyThread_set_key_value(internals.tstate, tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In member function ‘void pybind11::gil_scoped_acquire::dec_ref()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1809:38: warning: ‘void PyThread_delete_key_value(int)’ is deprecated [-Wdeprecated-declarations]
+ 1809 |             PyThread_delete_key_value(detail::get_internals().tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:101:37: note: declared here
+  101 | Py_DEPRECATED(3.7) PyAPI_FUNC(void) PyThread_delete_key_value(int key);
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In constructor ‘pybind11::gil_scoped_release::gil_scoped_release(bool)’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1837:39: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1837 |                 PyThread_set_key_value(key, nullptr);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In destructor ‘pybind11::gil_scoped_release::~gil_scoped_release()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1850:35: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1850 |             PyThread_set_key_value(key, tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In function ‘pybind11::function pybind11::get_type_overload(const void*, const detail::type_info*, const char*)’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1907:49: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘frame’; did you mean ‘cframe’?
+ 1907 |     PyFrameObject *frame = PyThreadState_Get()->frame;
+      |                                                 ^~~~~
+      |                                                 cframe
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1908:41: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1908 |     if (frame && (std::string) str(frame->f_code->co_name) == name &&
+      |                                         ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1909:14: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1909 |         frame->f_code->co_argcount > 0) {
+      |              ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:18: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                  ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+In file included from /usr/include/python3.11/Python.h:38:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:52: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                                                    ^~
+/usr/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+   24 | #define _Py_CAST(type, expr) ((type)(expr))
+      |                                      ^~~~
+/usr/include/python3.11/cpython/tupleobject.h:30:38: note: in expansion of macro ‘_PyTuple_CAST’
+   30 | #define PyTuple_GET_ITEM(op, index) (_PyTuple_CAST(op)->ob_item[index])
+      |                                      ^~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:30: note: in expansion of macro ‘PyTuple_GET_ITEM’
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                              ^~~~~~~~~~~~~~~~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In constructor ‘pybind11::gil_scoped_acquire::gil_scoped_acquire()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1758:58: warning: ‘void* PyThread_get_key_value(int)’ is deprecated [-Wdeprecated-declarations]
+ 1758 |         tstate = (PyThreadState *) PyThread_get_key_value(internals.tstate);
+      |                                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:100:39: note: declared here
+  100 | Py_DEPRECATED(3.7) PyAPI_FUNC(void *) PyThread_get_key_value(int key);
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1770:35: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1770 |             PyThread_set_key_value(internals.tstate, tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In member function ‘void pybind11::gil_scoped_acquire::dec_ref()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1809:38: warning: ‘void PyThread_delete_key_value(int)’ is deprecated [-Wdeprecated-declarations]
+ 1809 |             PyThread_delete_key_value(detail::get_internals().tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:101:37: note: declared here
+  101 | Py_DEPRECATED(3.7) PyAPI_FUNC(void) PyThread_delete_key_value(int key);
+      |                                     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In constructor ‘pybind11::gil_scoped_release::gil_scoped_release(bool)’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1837:39: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1837 |                 PyThread_set_key_value(key, nullptr);
+      |                 ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In destructor ‘pybind11::gil_scoped_release::~gil_scoped_release()’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1850:35: warning: ‘int PyThread_set_key_value(int, void*)’ is deprecated [-Wdeprecated-declarations]
+ 1850 |             PyThread_set_key_value(key, tstate);
+      |             ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/usr/include/python3.11/pythread.h:98:36: note: declared here
+   98 | Py_DEPRECATED(3.7) PyAPI_FUNC(int) PyThread_set_key_value(int key,
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h: In function ‘pybind11::function pybind11::get_type_overload(const void*, const detail::type_info*, const char*)’:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1907:49: error: ‘PyThreadState’ {aka ‘struct _ts’} has no member named ‘frame’; did you mean ‘cframe’?
+ 1907 |     PyFrameObject *frame = PyThreadState_Get()->frame;
+      |                                                 ^~~~~
+      |                                                 cframe
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1908:41: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1908 |     if (frame && (std::string) str(frame->f_code->co_name) == name &&
+      |                                         ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1909:14: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1909 |         frame->f_code->co_argcount > 0) {
+      |              ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:18: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                  ^~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+In file included from /usr/include/python3.11/Python.h:38:
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:52: error: invalid use of incomplete type ‘PyFrameObject’ {aka ‘struct _frame’}
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                                                    ^~
+/usr/include/python3.11/pyport.h:24:38: note: in definition of macro ‘_Py_CAST’
+   24 | #define _Py_CAST(type, expr) ((type)(expr))
+      |                                      ^~~~
+/usr/include/python3.11/cpython/tupleobject.h:30:38: note: in expansion of macro ‘_PyTuple_CAST’
+   30 | #define PyTuple_GET_ITEM(op, index) (_PyTuple_CAST(op)->ob_item[index])
+      |                                      ^~~~~~~~~~~~~
+/root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:1912:30: note: in expansion of macro ‘PyTuple_GET_ITEM’
+ 1912 |             frame->f_locals, PyTuple_GET_ITEM(frame->f_code->co_varnames, 0));
+      |                              ^~~~~~~~~~~~~~~~
+/usr/include/python3.11/pytypedefs.h:22:16: note: forward declaration of ‘PyFrameObject’ {aka ‘struct _frame’}
+   22 | typedef struct _frame PyFrameObject;
+      |                ^~~~~~
+gmake[2]: *** [CMakeFiles/pydnp3.dir/build.make:76: CMakeFiles/pydnp3.dir/src/pydnp3.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/pydnp3.dir/build.make:90: CMakeFiles/pydnp3.dir/src/pydnp3asiodnp3.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:128: CMakeFiles/pydnp3.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+Traceback (most recent call last):
+  File "/root/pydnp3/setup.py", line 69, in <module>
+    setup(
+  File "/usr/lib/python3/dist-packages/setuptools/__init__.py", line 108, in setup
+    return distutils.core.setup(**attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 185, in setup
+    return run_commands(dist)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/core.py", line 201, in run_commands
+    dist.run_commands()
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 969, in run_commands
+    self.run_command(cmd)
+  File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1213, in run_command
+    super().run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+    cmd_obj.run()
+  File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 74, in run
+    self.do_egg_install()
+  File "/usr/lib/python3/dist-packages/setuptools/command/install.py", line 123, in do_egg_install
+    self.run_command('bdist_egg')
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+    self.distribution.run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1213, in run_command
+    super().run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+    cmd_obj.run()
+  File "/usr/lib/python3/dist-packages/setuptools/command/bdist_egg.py", line 165, in run
+    cmd = self.call_command('install_lib', warn_dir=0)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/setuptools/command/bdist_egg.py", line 151, in call_command
+    self.run_command(cmdname)
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+    self.distribution.run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1213, in run_command
+    super().run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+    cmd_obj.run()
+  File "/usr/lib/python3/dist-packages/setuptools/command/install_lib.py", line 23, in run
+    self.build()
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/command/install_lib.py", line 112, in build
+    self.run_command('build_ext')
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/cmd.py", line 318, in run_command
+    self.distribution.run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/dist.py", line 1213, in run_command
+    super().run_command(command)
+  File "/usr/lib/python3/dist-packages/setuptools/_distutils/dist.py", line 988, in run_command
+    cmd_obj.run()
+  File "/root/pydnp3/setup.py", line 33, in run
+    self.build_extension(ext)
+  File "/root/pydnp3/setup.py", line 67, in build_extension
+    subprocess.check_call(['cmake', '--build', '.'] + build_args, cwd=self.build_temp)
+  File "/usr/lib/python3.11/subprocess.py", line 413, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '['cmake', '--build', '.', '--config', 'Release', '--', '-j2']' returned non-zero exit status 2.
+root@prover-vm:~/pydnp3# 
+
