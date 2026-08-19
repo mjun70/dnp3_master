@@ -24,7 +24,6 @@
 #include <opendnp3/logging/LogLevels.h>
 #include <opendnp3/master/DefaultMasterApplication.h>
 #include <opendnp3/master/PrintingSOEHandler.h>
-#include <opendnp3/master/PrintingCommandCallback.h>
 
 #include <chrono>
 #include <cstdlib>
