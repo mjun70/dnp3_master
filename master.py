@@ -47,10 +47,10 @@ class SOEHandler(opendnp3.ISOEHandler):
         # raw collection; for typed access use values.Foreach(visitor).
         print(f"[SOE] header={info.gv} qualifier={info.qualifier} values={values}")
 
-    def Start(self):
+    def BeginFragment(self, info):
         pass
 
-    def End(self):
+    def EndFragment(self, info):
         pass
 
 
