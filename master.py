@@ -134,8 +134,7 @@ def main():
     #    AddClassScan / Freya's "Integratity Poll Interval" field.
     master.AddClassScan(
         opendnp3.ClassField().AllClasses(),
-        openpal.TimeDuration().Seconds(poll_seconds),
-        SOEHandler()
+        openpal.TimeDuration().Seconds(poll_seconds)
     )
 
     # 6) Enable — starts the connection attempt and startup integrity poll.
