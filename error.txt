@@ -5,16 +5,32 @@ Starting DNP3 master:
   Remote (outsta): 0
   Poll interval:   30s
 
-ms(1787178070514) INFO    manager - Starting thread (0)
-Traceback (most recent call last):
-  File "/root/dnp3_master/master.py", line 151, in <module>
-    main()
-  File "/root/dnp3_master/master.py", line 135, in main
-    master.AddClassScan(
-TypeError: AddClassScan(): incompatible function arguments. The following argument types are supported:
-    1. (self: pydnp3.asiodnp3.IMasterOperations, field: pydnp3.opendnp3.ClassField, period: pydnp3.openpal.TimeDuration, config: pydnp3.opendnp3.TaskConfig = <pydnp3.opendnp3.TaskConfig object at 0x7ff07c202db0>) -> pydnp3.asiodnp3.IMasterScan
-
-Invoked with: <pydnp3.asiodnp3.IMaster object at 0x7ff07bb19db0>, <pydnp3.opendnp3.ClassField object at 0x7ff07c38ef30>, <pydnp3.openpal.TimeDuration object at 0x7ff07c1a0730>, <__main__.SOEHandler object at 0x7ff07bb34950>
-channel state change: SHUTDOWN
-ms(1787178070516) INFO    manager - Exiting thread (0)
-root@prover-vm:~/dnp3_master#
+ms(1787178512180) INFO    manager - Starting thread (0)
+channel state change: OPENING
+ms(1787178512181) INFO    tcp-client - Connecting to: 170.0.100.15
+Master enabled. Press Enter to exit.
+ms(1787178512185) INFO    tcp-client - Connected to: 170.0.100.15
+channel state change: OPEN
+ms(1787178512185) INFO    master - Begining task: Disable Unsolicited
+ms(1787178512185) --AL->  master - C0 15 3C 02 06 3C 03 06 3C 04 06 
+ms(1787178512185) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: DISABLE_UNSOLICITED
+ms(1787178512185) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787178512185) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787178512185) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787178512204) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: RESPONSE IIN: [0x00, 0x01]
+ms(1787178512204) WARN    master - Task was explicitly rejected via response with error IIN bit(s): Disable Unsolicited
+ms(1787178512204) INFO    master - Begining task: Startup Integrity Poll
+ms(1787178512204) --AL->  master - C1 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 
+ms(1787178512205) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: READ
+ms(1787178512205) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787178512205) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787178512205) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787178512205) --AL->  master - 060,001 - Class Data - Class 0 - all objects
+ms(1787178512214) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: RESPONSE IIN: [0x00, 0x00]
+ms(1787178512214) <-AL--  master - 001,002 Binary Input - With Flags, 8-bit start stop [0, 18]
+ms(1787178512214) <-AL--  master - 010,002 Binary Output - Output Status With Flags, 8-bit start stop [0, 31]
+ms(1787178512214) <-AL--  master - 030,001 Analog Input - 32-bit With Flag, 8-bit start stop [0, 13]
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  Tried to call pure virtual function "ISOEHandler::Start"
+Aborted
+root@prover-vm:~/dnp3_master# 
