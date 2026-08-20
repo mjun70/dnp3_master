@@ -1,17 +1,3 @@
-root@2f3ce8643641:~/pydnp3# ping 170.0.100.15
-PING 170.0.100.15 (170.0.100.15) 56(84) bytes of data.
-64 bytes from 170.0.100.15: icmp_seq=1 ttl=254 time=6.13 ms
-64 bytes from 170.0.100.15: icmp_seq=2 ttl=254 time=4.84 ms
-64 bytes from 170.0.100.15: icmp_seq=3 ttl=254 time=3.62 ms
-64 bytes from 170.0.100.15: icmp_seq=4 ttl=254 time=1.96 ms
-64 bytes from 170.0.100.15: icmp_seq=5 ttl=254 time=12.0 ms
-64 bytes from 170.0.100.15: icmp_seq=6 ttl=254 time=11.2 ms
-64 bytes from 170.0.100.15: icmp_seq=7 ttl=254 time=3.42 ms
-^C
---- 170.0.100.15 ping statistics ---
-7 packets transmitted, 7 received, 0% packet loss, time 6008ms
-rtt min/avg/max/mdev = 1.963/6.166/11.977/3.639 ms
-root@2f3ce8643641:~/pydnp3# curl -v telnet://170.0.100.15:20000
-*   Trying 170.0.100.15:20000...
-* Connected to 170.0.100.15 (170.0.100.15) port 20000 (#0)
-
+root@prover-vm:~/dnp3_master# docker inspect 2f3ce8643641 --format '{{json .NetworkSettings.Networks}}'
+{"raptor-openplc-net":{"IPAMConfig":null,"Links":null,"Aliases":["prover1-openplc","prover1-openplc"],"DriverOpts":null,"GwPriority":0,"NetworkID":"b5aac49fa0afc9b7b7fccac768e1e529ecf2bd4f7e4c72891d9032f942c46353","EndpointID":"4866e49488654e40a56e92d357e2ab6674678da2e57b66533ae94658284664f1","Gateway":"172.17.0.1","IPAddress":"172.17.0.2","MacAddress":"f2:fe:70:7d:4c:f6","IPPrefixLen":16,"IPv6Gateway":"","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"DNSNames":["prover1-openplc","2f3ce8643641"]}}
+root@prover-vm:~/dnp3_master# 
