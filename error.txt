@@ -1,98 +1,46 @@
-root@prover-vm:~/dnp3_master# python3 -c "
-> from pydnp3 import opendnp3
-> help(opendnp3.ISOEHandler)
-> help(opendnp3.ITransactable)
-> " > /tmp/soehandler_help.txt 2>&1
-root@prover-vm:~/dnp3_master# cat /tmp/soehandler_help.txt 
-Help on class ISOEHandler in module pydnp3.opendnp3:
+root@prover-vm:~/dnp3_master# python3 master.py 170.0.100.15 20000 2 0 10
+Starting DNP3 master:
+  Target:          170.0.100.15:20000
+  Local (master):  2
+  Remote (outsta): 0
+  Poll interval:   10s
 
-class ISOEHandler(ITransactable)
- |  An interface for Sequence-Of-Events (SOE) callbacks from a master stack to the application layer. 
- |  A call is made to the appropriate member method for every measurement value in an ASDU. 
- |  The HeaderInfo class provides information about the object header associated with the value.
- |  
- |  Method resolution order:
- |      ISOEHandler
- |      ITransactable
- |      pybind11_builtins.pybind11_object
- |      builtins.object
- |  
- |  Methods defined here:
- |  
- |  Process(...)
- |      Process(*args, **kwargs)
- |      Overloaded function.
- |      
- |      1. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinary) -> None
- |      
- |      2. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedDoubleBitBinary) -> None
- |      
- |      3. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalog) -> None
- |      
- |      4. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedCounter) -> None
- |      
- |      5. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedFrozenCounter) -> None
- |      
- |      6. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinaryOutputStatus) -> None
- |      
- |      7. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalogOutputStatus) -> None
- |      
- |      8. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedOctetString) -> None
- |      
- |      9. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedTimeAndInterval) -> None
- |      
- |      10. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedBinaryCommandEvent) -> None
- |      
- |      11. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedAnalogCommandEvent) -> None
- |      
- |      12. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionIndexedSecurityStat) -> None
- |      
- |      13. Process(self: pydnp3.opendnp3.ISOEHandler, info: pydnp3.opendnp3.HeaderInfo, values: pydnp3.opendnp3.ICollectionDNPTime) -> None
- |  
- |  __init__(...)
- |      __init__(self: pydnp3.opendnp3.ISOEHandler) -> None
- |  
- |  ----------------------------------------------------------------------
- |  Methods inherited from ITransactable:
- |  
- |  End(...)
- |      End(self: pydnp3.opendnp3.ITransactable) -> None
- |  
- |  Start(...)
- |      Start(self: pydnp3.opendnp3.ITransactable) -> None
- |  
- |  ----------------------------------------------------------------------
- |  Static methods inherited from pybind11_builtins.pybind11_object:
- |  
- |  __new__(*args, **kwargs) from pybind11_builtins.pybind11_type
- |      Create and return a new object.  See help(type) for accurate signature.
+ms(1787238555667) INFO    manager - Starting thread (0)
+channel state change: OPENING
+ms(1787238555667) INFO    tcp-client - Connecting to: 170.0.100.15
+Master enabled. Press Enter to exit.
+ms(1787238555679) INFO    tcp-client - Connected to: 170.0.100.15
+channel state change: OPEN
+[master] channel opened
+ms(1787238555681) INFO    master - Begining task: Disable Unsolicited
+ms(1787238555681) --AL->  master - C0 15 3C 02 06 3C 03 06 3C 04 06 
+ms(1787238555681) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: DISABLE_UNSOLICITED
+ms(1787238555681) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787238555681) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787238555681) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787238555704) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: RESPONSE IIN: [0x00, 0x01]
+ms(1787238555704) WARN    master - Task was explicitly rejected via response with error IIN bit(s): Disable Unsolicited
+ms(1787238555704) INFO    master - Begining task: Startup Integrity Poll
+ms(1787238555704) --AL->  master - C1 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 
+ms(1787238555704) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: READ
+ms(1787238555704) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787238555704) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787238555704) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787238555704) --AL->  master - 060,001 - Class Data - Class 0 - all objects
+ms(1787238555708) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: RESPONSE IIN: [0x00, 0x00]
+ms(1787238555708) <-AL--  master - 001,002 Binary Input - With Flags, 8-bit start stop [0, 18]
+ms(1787238555708) <-AL--  master - 010,002 Binary Output - Output Status With Flags, 8-bit start stop [0, 31]
+ms(1787238555708) <-AL--  master - 030,001 Analog Input - 32-bit With Flag, 8-bit start stop [0, 13]
+terminate called after throwing an instance of 'pybind11::error_already_set'
+  what():  TypeError: Foreach(): incompatible function arguments. The following argument types are supported:
+    1. (self: pydnp3.opendnp3.ICollectionIndexedBinary, visitor: pydnp3.opendnp3.IVisitorIndexedBinary) -> None
 
-Help on class ITransactable in module pydnp3.opendnp3:
+Invoked with: <pydnp3.opendnp3.ICollectionIndexedBinary object at 0x7f97d21cf470>, <function SOEHandler.Process.<locals>.print_item at 0x7f97d1b0e200>
 
-class ITransactable(pybind11_builtins.pybind11_object)
- |  Something that can be performed atomically or needing Start()/End() signals.
- |  
- |  Method resolution order:
- |      ITransactable
- |      pybind11_builtins.pybind11_object
- |      builtins.object
- |  
- |  Methods defined here:
- |  
- |  End(...)
- |      End(self: pydnp3.opendnp3.ITransactable) -> None
- |  
- |  Start(...)
- |      Start(self: pydnp3.opendnp3.ITransactable) -> None
- |  
- |  __init__(...)
- |      __init__(self: pydnp3.opendnp3.ITransactable) -> None
- |  
- |  ----------------------------------------------------------------------
- |  Static methods inherited from pybind11_builtins.pybind11_object:
- |  
- |  __new__(*args, **kwargs) from pybind11_builtins.pybind11_type
- |      Create and return a new object.  See help(type) for accurate signature.
+At:
+  /root/dnp3_master/master.py(54): Process
 
+Aborted
+root@prover-vm:~/dnp3_master# ps aux | grep master
+root       11309  0.0  0.0   3880  1908 pts/1    S+   15:10   0:00 grep master
 root@prover-vm:~/dnp3_master# 
-
