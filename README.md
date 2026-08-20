@@ -30,21 +30,28 @@ This produces the `dnp3_master` executable in `build/`.
 
 ## 3. Run
 
+**C++**
 ```
 ./dnp3_master <ip> <port> <local_addr(master)> <remote_addr(outstation)> [poll_seconds]
 ```
 
 Example, matching a config with Master Address = 2 and Outstation Address = 1:
 ```bash
-./dnp3_master 30.30.0.3 20000 2 1 30
+./dnp3_master 170.0.100.15 20000 2 0 10
 ```
 
 If the outstation never responds (link stays "Reset of Remote Link" with no
 reply — the exact symptom in the earlier packet capture), try the addresses
 swapped:
 ```bash
-./dnp3_master 30.30.0.3 20000 1 2 30
+./dnp3_master 170.0.100.15 20000 0 2 10
 ```
+
+**Python**
+```
+python3 master.py <ip> <port> <local_addr(master)> <remote_addr(outstation)> [poll_seconds]
+```
+
 
 ## What "local" and "remote" mean here
 
