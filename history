@@ -1,1 +1,223 @@
 
+    1  ping 170.0.100.15
+    2  ping google.com
+    3  curl -O https://github.com/dnp3/opendnp3/archive/refs/heads/release.zip
+    4  ls -al
+    5  rm release.zip 
+    6  curl --output opendnp3.zip "https://github.com/dnp3/opendnp3/archive/refs/heads/release.zip"
+    7  ls -al
+    8  rm opendnp3.zip 
+    9  curl --insecure --output opendnp3.zip "https://github.com/dnp3/opendnp3/archive/refs/heads/release.zip"
+   10  rm opendnp3.zip 
+   11  curl --insecure -L -o opendnp3.zip "https://github.com/dnp3/opendnp3/archive/refs/heads/release.zip"
+   12  ls -al
+   13  unzip opendnp3.zip 
+   14  sudo apt-get install unzip
+   15  apt-get install unzip
+   16  unzip opendnp3.zip 
+   17  ls -al
+   18  cd opendnp3-release/
+   19  ls
+   20  ls -al
+   21  mkdir build 
+   22  cd build
+   23  ls
+   24  cmak ..
+   25  cmake ..
+   26  apt install cmake
+   27  apt-get update --fix-missing
+   28  apt-get install cmake
+   29  cmake ..
+   30  apt-get install build-essential
+   31  cmake ..
+   32  make -j
+   33  make install
+   34  cd ..
+   35  cd
+   36  git clone https://github.com/microsoft/vcpkg
+   37  apt-get install git
+   38  git clone https://github.com/microsoft/vcpkg
+   39  ./vcpkg/bootstrap-vcpkg.sh 
+   40  apt-get install zip tar
+   41  ./vcpkg/bootstrap-vcpkg.sh 
+   42  ./vcpkg/vcpkg install opendnp3
+   43  which dnp3_master
+   44  ls
+   45  cd opendnp3-release/
+   46  ls
+   47  cd build
+   48  ls
+   49  ls -al
+   50  which dnp3_master
+   51  cd ..
+   52  rm -rf build
+   53  cmake -B build -DCMAKE_BUILD_TYPE=Release
+   54  ls
+   55  cmake --build build --config Release
+   56  cd build
+   57  ls
+   58  ls -al
+   59  cd ..
+   60  cmake --install build
+   61  ls
+   62  cd ..
+   63  ls
+   64  mkdir dnp3_master
+   65  cd dnp3_master/
+   66  ls
+   67  nano CMakeLists.txt
+   68  cd ..
+   69  ms
+   70  ls
+   71  rm -rf dnp3_master/
+   72  cd opendnp3
+   73  cd opendnp3-release/
+   74  ls
+   75  ls -al
+   76  cd ..
+   77  ls
+   78  git clone https://github.com/mjun70/dnp3_master
+   79  ls
+   80  cd dnp3_master/
+   81  ls
+   82  cmake -B build
+   83  find / -iname 'DNP3Config.cmake' -o -iname 'dnp3-config.cmake' 2>/dev/null
+   84  find / -iname '*dnp3*.cmake' -o -iname '*dnp3*-Config*' 2>/dev/null
+   85  grep -m 10 'add_library' /usr/local/lib/cmake/opendnp3-export.cmake
+   86  cd ..
+   87  rm -rf dnp3_master/
+   88  git clone https://github.com/mjun70/dnp3_master
+   89  cd dnp3_master/
+   90  ls
+   91  ls -al
+   92  cmake -B build
+   93  cmake --build build
+   94  cd ..
+   95  rm -rf dnp3_master/
+   96  git clone https://github.com/mjun70/dnp3_master
+   97  cd dnp3_master/
+   98  cmake -B build
+   99  cmake --build build
+  100  cd ..
+  101  ls
+  102  rm 0rf dnp3_master/
+  103  rm -rf dnp3_master/
+  104  git clone --recursive http://github.com/Kisensum/pydnp3
+  105  cd pydnp3/
+  106  ls
+  107  which python
+  108  which python3
+  109  python3 setup.py install
+  110  python3 -m pip install setuptools
+  111  python3 -m ensurepip --upgrade
+  112  apt-get install python3-pip
+  113  python3 -m pip install setuptools
+  114  apt-get install python3-setuptools
+  115  python3 setup.py install
+  116  cmake --version
+  117  which clone
+  118  cd ..
+  119  ls
+  120  git clone http://github.com/mjun70/dnp3_master
+  121  cd dnp3_master/
+  122  ls
+  123  cmake -B build
+  124  cmake --build build
+  125  ls
+  126  ls
+  127  cd build/
+  128  ls
+  129  ls -al
+  130  ./dnp3_master 170.0.100.15 20000 2 0 5
+  131  ./dnp3_master 170.0.100.15 20000 2 0 30
+  132  ./dnp3_master 170.0.100.15 20000 2 0 30
+  133  cd ..
+  134  ls
+  135  cd ..
+  136  ls
+  137  cd pydnp3/
+  138  ls
+  139  python3 setup.py install
+  140  cd dep
+  141  cd deps
+  142  rm -rf pybind11/
+  143  git clone --branch v2.11.1 --depth 1 https://github.com/pybind/pybind11.git
+  144  cd ..
+  145  rm -rf build
+  146  python3 setup.py install
+  147  ls
+  148  cd examples/
+  149  ls
+  150  ls -al
+  151  nano master.py 
+  152  python3 master.py
+  153  ls
+  154  nano master_cmd.py 
+  155  python3 master_cmd.py
+  156  ps aux | grep python
+  157  nano master_cmd.py 
+  158  nano master_cmd.py 
+  159  python3 master_cmd.py
+  160  cd
+  161  pip install dnp3-python
+  162  pip3 install dnp3-python
+  163  git clone http://github.com/VOLTTRON/dnp3-python
+  164  cd dnp3-python/
+  165  ls
+  166  ls -al
+  167  python --version
+  168  history
+  169  python3 setup.py install
+  170  cd ..
+  171  ls
+  172  cd dnp3_master/
+  173  ls
+  174  rm error.txt 
+  175  nano error.txt
+  176  git commit -a -m "Revised error"
+  177  git push origin main
+  178  rm error.txt 
+  179  nano error.txt
+  180  git commit -a -m "Revised error"
+  181  git push origin main
+  182  git pull
+  183  history
+  184  git pull
+  185  git pull
+  186  rm error.txt 
+  187  nano error.txt
+  188  git commit -a -m "Revised error"
+  189  git push origin main
+  190  git pull
+  191  rm error.txt 
+  192  nano error.txt
+  193  git commit -a -m "Revised error"
+  194  git push origin main
+  195  git pull
+  196  rm error.txt 
+  197  nano error.txt
+  198  git commit -a -m "Revised error"
+  199  git push origin main
+  200  git pull
+  201  git pull
+  202  git pull
+  203  git pull
+  204  ls
+  205  ./build/dnp3_master 170.0.100.15 20000 2 0 10
+  206  ./build/dnp3_master 170.0.100.15 20000 2 0 10
+  207  cd ..
+  208  ls
+  209  git clone --branch scenario https://gitlab.range.nrel.gov/openampere/raptor.git
+  210  ls a-l
+  211  ls -al
+  212  cd raptor
+  213  ls
+  214  ls -al
+  215  nano README_OPENPLC_DOCKER.md 
+  216  nano README_OPENPLC_DOCKER.md 
+  217  cd ..
+  218  ls
+  219  cd raptor/
+  220  history
+  221  history | grep setup
+  222  history > error.txt
