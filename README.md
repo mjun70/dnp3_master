@@ -1,7 +1,7 @@
 # DNP3 Master Example (C++ and Python)
 
 A minimal DNP3 master (client) in C++ built on the [OpenDNP3](https://github.com/dnp3/opendnp3)
-library and one in Python built on the [PyDNP3](https://github.com/Kitensum/pydnp3). It connects to an outstation over TCP, runs a periodic Class 0
+library and one in Python built on the [PyDNP3](https://github.com/ChargePoint/pydnp3). It connects to an outstation over TCP, runs a periodic Class 0
 integrity poll, and prints every received measurement to the console.
 
 Local/remote link addresses, target IP, and port are all command-line
