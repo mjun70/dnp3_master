@@ -201,11 +201,11 @@ def main():
     input()
 
     # Explicitly tear down active DNP3 sessions first
-    master.Disable()
-    channel.Shutdown()
+    #master.Disable()
+    #channel.Shutdown()
 
     # Stop thread manager
-    manager.Shutdown()
+    #manager.Shutdown()
 
     # Bypass pybind11 C++ thread-join lock on exit
     os._exit(0)
