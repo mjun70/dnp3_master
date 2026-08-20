@@ -45,7 +45,7 @@ class SOEHandler(opendnp3.ISOEHandler):
         # `values` is an ICollection of Indexed<T> for whichever type
         # matched (Binary, Analog, Counter, etc). We just print the
         # raw collection; for typed access use values.Foreach(visitor).
-        print(f"[SOE] header={info.gv} qualifier={info.qualifier} values={values}")
+        print(f"[SOE] header={info.gv} qualifier={info.qualifier} values={values.Foreach(visitor)}")
 
     def Start(self):
         pass
@@ -152,6 +152,7 @@ def main():
     input()
 
     manager.Shutdown()
+    exit(1)
 
 
 if __name__ == "__main__":
