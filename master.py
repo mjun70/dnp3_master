@@ -29,7 +29,7 @@ If the outstation never responds, try swapping local/remote:
     python3 master.py 30.30.0.3 20000 1 2 30
 """
 
-import sys
+import sys, os
 
 from pydnp3 import opendnp3, openpal, asiopal, asiodnp3
 
