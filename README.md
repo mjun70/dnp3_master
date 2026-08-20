@@ -1,16 +1,16 @@
-# DNP3 Master Example (OpenDNP3)
+# DNP3 Master Example (C++ and Python)
 
-A minimal DNP3 master (client) built on the [OpenDNP3](https://github.com/dnp3/opendnp3)
-library. It connects to an outstation over TCP, runs a periodic Class 0
+A minimal DNP3 master (client) in C++ built on the [OpenDNP3](https://github.com/dnp3/opendnp3)
+library and one in Python built on the [PyDNP3](https://github.com/Kitensum/pydnp3). It connects to an outstation over TCP, runs a periodic Class 0
 integrity poll, and prints every received measurement to the console.
 
 Local/remote link addresses, target IP, and port are all command-line
 arguments, so you can quickly test both address orientations if you're
 troubleshooting an addressing mismatch.
 
-## 1. Install OpenDNP3
+## 1. Install OpenDNP3 & PyDNP3
 
-**build from source:**
+**OpenDNP3**
 ```bash
 git clone https://github.com/dnp3/opendnp3
 cd opendnp3
@@ -19,7 +19,18 @@ cmake --build build --config Release
 sudo cmake --install build
 ```
 
-## 2. Build this project
+**PyDNP3**
+```bash
+git clone --recursive http://github.com/Kisensum/pydnp3
+cd ~/pydnp3/deps
+rm -rf pybind11
+git clone --branch v2.11.1 --depth 1 https://github.com/pybind/pybind11.git
+cd ~/pydnp3
+rm -rf build
+python3 setup.py install
+```
+
+## 2. Build this project (for main.cpp)
 
 ```bash
 cmake -B build
