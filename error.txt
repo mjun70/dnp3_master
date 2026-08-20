@@ -1,10 +1,17 @@
-root@prover-vm:~/raptor# docker exec -it 2f3ce8643641 bash
-root@2f3ce8643641:~/pydnp3# nc -zv 170.0.100.40 20000
-bash: nc: command not found
-root@2f3ce8643641:~/pydnp3# curl -v telnet://170.0.100.40:20000
-*   Trying 170.0.100.40:20000...
-* connect to 170.0.100.40 port 20000 failed: Connection refused
-* Failed to connect to 170.0.100.40 port 20000 after 0 ms: Couldn't connect to server
-* Closing connection 0
-curl: (7) Failed to connect to 170.0.100.40 port 20000 after 0 ms: Couldn't connect to server
-root@2f3ce8643641:~/pydnp3# 
+root@2f3ce8643641:~/pydnp3# ping 170.0.100.15
+PING 170.0.100.15 (170.0.100.15) 56(84) bytes of data.
+64 bytes from 170.0.100.15: icmp_seq=1 ttl=254 time=6.13 ms
+64 bytes from 170.0.100.15: icmp_seq=2 ttl=254 time=4.84 ms
+64 bytes from 170.0.100.15: icmp_seq=3 ttl=254 time=3.62 ms
+64 bytes from 170.0.100.15: icmp_seq=4 ttl=254 time=1.96 ms
+64 bytes from 170.0.100.15: icmp_seq=5 ttl=254 time=12.0 ms
+64 bytes from 170.0.100.15: icmp_seq=6 ttl=254 time=11.2 ms
+64 bytes from 170.0.100.15: icmp_seq=7 ttl=254 time=3.42 ms
+^C
+--- 170.0.100.15 ping statistics ---
+7 packets transmitted, 7 received, 0% packet loss, time 6008ms
+rtt min/avg/max/mdev = 1.963/6.166/11.977/3.639 ms
+root@2f3ce8643641:~/pydnp3# curl -v telnet://170.0.100.15:20000
+*   Trying 170.0.100.15:20000...
+* Connected to 170.0.100.15 (170.0.100.15) port 20000 (#0)
+
