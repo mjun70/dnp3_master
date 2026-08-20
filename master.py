@@ -42,10 +42,16 @@ class SOEHandler(opendnp3.ISOEHandler):
     """
 
     def Process(self, info, values):
-        # `values` is an ICollection of Indexed<T> for whichever type
-        # matched (Binary, Analog, Counter, etc). We just print the
-        # raw collection; for typed access use values.Foreach(visitor).
-        print(f"[SOE] header={info.gv} qualifier={info.qualifier} values={values.Foreach(visitor)}")
+        # `values` is an ICollection of Indexed<T> (T = Binary, Analog,
+        # Counter, etc, depending on which Process overload matched).
+        # Foreach() walks the collection and calls our function once per
+        # item - it doesn't return anything itself, so don't try to print
+        # its return value directly.
+        def print_item(indexed_value):
+            print(f"[SOE] header={info.gv} qualifier={info.qualifier} "
+                  f"index={indexed_value.index} value={indexed_value.value}")
+ 
+        values.Foreach(print_item)
 
     def Start(self):
         pass
