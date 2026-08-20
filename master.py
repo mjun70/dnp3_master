@@ -47,10 +47,10 @@ class SOEHandler(opendnp3.ISOEHandler):
         # raw collection; for typed access use values.Foreach(visitor).
         print(f"[SOE] header={info.gv} qualifier={info.qualifier} values={values}")
 
-    def BeginFragment(self, info):
+    def Start(self):
         pass
 
-    def EndFragment(self, info):
+    def End(self):
         pass
 
 
@@ -122,11 +122,19 @@ def main():
     stack_config.master.responseTimeout = openpal.TimeDuration().Seconds(5)
     stack_config.master.disableUnsolOnStartup = True
 
+    # Construct these as named variables (not inline temporaries) and keep
+    # them referenced for the lifetime of the program. Some pydnp3 builds
+    # don't keep the Python-side callback object alive correctly via the
+    # C++ shared_ptr holder, so an inline `SOEHandler()` can get garbage
+    # collected out from under the stack once real callbacks start firing.
+    soe_handler = SOEHandler()
+    master_application = MasterApplication()
+
     # 4) Bind a master session to the channel.
     master = channel.AddMaster(
         "master",
-        SOEHandler(),
-        MasterApplication(),
+        soe_handler,
+        master_application,
         stack_config
     )
 
