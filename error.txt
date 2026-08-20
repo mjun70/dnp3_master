@@ -1,7 +1,4 @@
-[SOE] Analog index=11 value=6.0
-[SOE] Analog index=12 value=0.0
-[SOE] Analog index=13 value=2147483647.0
-
-channel state change: CLOSED
-[master] channel closed
-channel state change: SHUTDOWN
+/root/pydnp3/deps/pybind11/include/pybind11/detail/common.h:266:10: fatal error: Python.h: No such file or directory
+53.75   266 | #include <Python.h>
+53.75       |          ^~~~~~~~~~
+53.75 compilation terminated.
