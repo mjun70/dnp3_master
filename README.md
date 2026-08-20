@@ -10,18 +10,7 @@ troubleshooting an addressing mismatch.
 
 ## 1. Install OpenDNP3
 
-**Option A — vcpkg (easiest on Windows/Linux/macOS):**
-```bash
-git clone https://github.com/microsoft/vcpkg
-./vcpkg/bootstrap-vcpkg.sh      # or bootstrap-vcpkg.bat on Windows
-./vcpkg/vcpkg install opendnp3
-```
-Then configure CMake with the vcpkg toolchain file:
-```bash
-cmake -B build -DCMAKE_TOOLCHAIN_FILE=<path-to-vcpkg>/scripts/buildsystems/vcpkg.cmake
-```
-
-**Option B — build from source:**
+**build from source:**
 ```bash
 git clone https://github.com/dnp3/opendnp3
 cd opendnp3
