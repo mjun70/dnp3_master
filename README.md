@@ -62,22 +62,6 @@ python3 master.py <ip> <port> <local_addr(master)> <remote_addr(outstation)> [po
   outstation's own configured local address, or the outstation will silently
   discard every frame (which looks identical to "not connected").
 
-## Verifying on the wire
-
-Capture traffic with Wireshark/tshark while this runs and check the DNP3
-Data Link Layer line for each frame, e.g.:
-
-```
-Data Link Layer, Len: 5, From: 2, To: 1, DIR, PRM, Reset of Remote Link
-```
-
-`From` should equal the `local_addr` you passed in, and `To` should equal
-`remote_addr`. If a real outstation is listening and correctly addressed,
-you should then see it respond with an ACK frame (`From: 1, To: 2` in this
-example) — if you see the reset go out but never any reply, the outstation
-either isn't running, isn't listening on that port, or its own local address
-doesn't match `remote_addr`.
-
 ## Notes
 
 - `PrintingSOEHandler` logs every measurement update (binary, analog,
