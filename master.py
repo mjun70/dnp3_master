@@ -33,25 +33,24 @@ import sys
 
 from pydnp3 import opendnp3, openpal, asiopal, asiodnp3
 
+class BinaryVisitor(opendnp3.IVisitorIndexedBinary):
+    def __init__(self, info):
+        super().__init__()
+        self.info = info
+
+    def OnValue(self, indexed_value):
+        print(f"[SOE] header={self.info.gv} qualifier={self.info.qualifier} "
+              f"index={indexed_value.index} value={indexed_value.value.value}")
+    
 
 class SOEHandler(opendnp3.ISOEHandler):
     """
-    Receives all measurement updates (Sequence-Of-Events) from the
-    outstation and prints them. Override the Process() overloads you
-    care about; the rest can just pass.
+    Receives measurement updates (Sequence-Of-Events) from the outstation.
     """
 
     def Process(self, info, values):
-        # `values` is an ICollection of Indexed<T> (T = Binary, Analog,
-        # Counter, etc, depending on which Process overload matched).
-        # Foreach() walks the collection and calls our function once per
-        # item - it doesn't return anything itself, so don't try to print
-        # its return value directly.
-        def print_item(indexed_value):
-            print(f"[SOE] header={info.gv} qualifier={info.qualifier} "
-                  f"index={indexed_value.index} value={indexed_value.value}")
- 
-        values.Foreach(print_item)
+        visitor = BinaryVisitor(info)
+        values.Foreach(visitor)
 
     def Start(self):
         pass
