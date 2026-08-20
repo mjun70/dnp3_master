@@ -1,4 +1,10 @@
-/root/pydnp3/deps/pybind11/include/pybind11/detail/common.h:266:10: fatal error: Python.h: No such file or directory
+53.74 [ 98%] Building CXX object CMakeFiles/pydnp3.dir/src/pydnp3.cpp.o
+53.75 In file included from /root/pydnp3/deps/pybind11/include/pybind11/attr.h:13,
+53.75                  from /root/pydnp3/deps/pybind11/include/pybind11/detail/class.h:12,
+53.75                  from /root/pydnp3/deps/pybind11/include/pybind11/pybind11.h:13,
+53.75                  from /root/pydnp3/deps/pybind11/include/pybind11/stl.h:12,
+53.75                  from /root/pydnp3/src/pydnp3asiodnp3.cpp:31:
+53.75 /root/pydnp3/deps/pybind11/include/pybind11/detail/common.h:266:10: fatal error: Python.h: No such file or directory
 53.75   266 | #include <Python.h>
 53.75       |          ^~~~~~~~~~
 53.75 compilation terminated.
