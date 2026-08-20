@@ -200,8 +200,15 @@ def main():
     print("Master enabled. Press Enter to exit.")
     input()
 
+    # Explicitly tear down active DNP3 sessions first
+    master.Disable()
+    channel.Shutdown()
+
+    # Stop thread manager
     manager.Shutdown()
-    exit(1)
+
+    # Bypass pybind11 C++ thread-join lock on exit
+    os._exit(0)
 
 
 if __name__ == "__main__":
