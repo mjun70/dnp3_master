@@ -5,42 +5,60 @@ Starting DNP3 master:
   Remote (outsta): 0
   Poll interval:   10s
 
-ms(1787238555667) INFO    manager - Starting thread (0)
+ms(1787239126859) INFO    manager - Starting thread (0)
 channel state change: OPENING
-ms(1787238555667) INFO    tcp-client - Connecting to: 170.0.100.15
+ms(1787239126859) INFO    tcp-client - Connecting to: 170.0.100.15
 Master enabled. Press Enter to exit.
-ms(1787238555679) INFO    tcp-client - Connected to: 170.0.100.15
+ms(1787239126876) INFO    tcp-client - Connected to: 170.0.100.15
 channel state change: OPEN
 [master] channel opened
-ms(1787238555681) INFO    master - Begining task: Disable Unsolicited
-ms(1787238555681) --AL->  master - C0 15 3C 02 06 3C 03 06 3C 04 06 
-ms(1787238555681) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: DISABLE_UNSOLICITED
-ms(1787238555681) --AL->  master - 060,002 - Class Data - Class 1 - all objects
-ms(1787238555681) --AL->  master - 060,003 - Class Data - Class 2 - all objects
-ms(1787238555681) --AL->  master - 060,004 - Class Data - Class 3 - all objects
-ms(1787238555704) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: RESPONSE IIN: [0x00, 0x01]
-ms(1787238555704) WARN    master - Task was explicitly rejected via response with error IIN bit(s): Disable Unsolicited
-ms(1787238555704) INFO    master - Begining task: Startup Integrity Poll
-ms(1787238555704) --AL->  master - C1 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 
-ms(1787238555704) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: READ
-ms(1787238555704) --AL->  master - 060,002 - Class Data - Class 1 - all objects
-ms(1787238555704) --AL->  master - 060,003 - Class Data - Class 2 - all objects
-ms(1787238555704) --AL->  master - 060,004 - Class Data - Class 3 - all objects
-ms(1787238555704) --AL->  master - 060,001 - Class Data - Class 0 - all objects
-ms(1787238555708) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: RESPONSE IIN: [0x00, 0x00]
-ms(1787238555708) <-AL--  master - 001,002 Binary Input - With Flags, 8-bit start stop [0, 18]
-ms(1787238555708) <-AL--  master - 010,002 Binary Output - Output Status With Flags, 8-bit start stop [0, 31]
-ms(1787238555708) <-AL--  master - 030,001 Analog Input - 32-bit With Flag, 8-bit start stop [0, 13]
+ms(1787239126877) INFO    master - Begining task: Disable Unsolicited
+ms(1787239126877) --AL->  master - C0 15 3C 02 06 3C 03 06 3C 04 06 
+ms(1787239126877) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: DISABLE_UNSOLICITED
+ms(1787239126877) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787239126877) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787239126877) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787239126927) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 0 FUNC: RESPONSE IIN: [0x00, 0x01]
+ms(1787239126927) WARN    master - Task was explicitly rejected via response with error IIN bit(s): Disable Unsolicited
+ms(1787239126927) INFO    master - Begining task: Startup Integrity Poll
+ms(1787239126927) --AL->  master - C1 01 3C 02 06 3C 03 06 3C 04 06 3C 01 06 
+ms(1787239126927) --AL->  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: READ
+ms(1787239126927) --AL->  master - 060,002 - Class Data - Class 1 - all objects
+ms(1787239126927) --AL->  master - 060,003 - Class Data - Class 2 - all objects
+ms(1787239126927) --AL->  master - 060,004 - Class Data - Class 3 - all objects
+ms(1787239126927) --AL->  master - 060,001 - Class Data - Class 0 - all objects
+ms(1787239126948) <-AL--  master - FIR: 1 FIN: 1 CON: 0 UNS: 0 SEQ: 1 FUNC: RESPONSE IIN: [0x00, 0x00]
+ms(1787239126948) <-AL--  master - 001,002 Binary Input - With Flags, 8-bit start stop [0, 18]
+ms(1787239126948) <-AL--  master - 010,002 Binary Output - Output Status With Flags, 8-bit start stop [0, 31]
+ms(1787239126948) <-AL--  master - 030,001 Analog Input - 32-bit With Flag, 8-bit start stop [0, 13]
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=0 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=1 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=2 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=3 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=4 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=5 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=6 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=7 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=8 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=9 value=True
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=10 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=11 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=12 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=13 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=14 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=15 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=16 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=17 value=False
+[SOE] header=GroupVariation.Group1Var2 qualifier=QualifierCode.UINT8_START_STOP index=18 value=False
 terminate called after throwing an instance of 'pybind11::error_already_set'
   what():  TypeError: Foreach(): incompatible function arguments. The following argument types are supported:
-    1. (self: pydnp3.opendnp3.ICollectionIndexedBinary, visitor: pydnp3.opendnp3.IVisitorIndexedBinary) -> None
+    1. (self: pydnp3.opendnp3.ICollectionIndexedBinaryOutputStatus, visitor: pydnp3.opendnp3.IVisitorIndexedBinaryOutputStatus) -> None
 
-Invoked with: <pydnp3.opendnp3.ICollectionIndexedBinary object at 0x7f97d21cf470>, <function SOEHandler.Process.<locals>.print_item at 0x7f97d1b0e200>
+Invoked with: <pydnp3.opendnp3.ICollectionIndexedBinaryOutputStatus object at 0x7fae5adffd30>, <__main__.BinaryVisitor object at 0x7fae5a734ad0>
 
 At:
-  /root/dnp3_master/master.py(54): Process
+  /root/dnp3_master/master.py(53): Process
 
 Aborted
-root@prover-vm:~/dnp3_master# ps aux | grep master
-root       11309  0.0  0.0   3880  1908 pts/1    S+   15:10   0:00 grep master
 root@prover-vm:~/dnp3_master# 
+
