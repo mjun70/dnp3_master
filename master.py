@@ -33,24 +33,68 @@ import sys
 
 from pydnp3 import opendnp3, openpal, asiopal, asiodnp3
 
+# --- Visitor Classes ---
+
 class BinaryVisitor(opendnp3.IVisitorIndexedBinary):
     def __init__(self, info):
         super().__init__()
         self.info = info
 
     def OnValue(self, indexed_value):
-        print(f"[SOE] header={self.info.gv} qualifier={self.info.qualifier} "
-              f"index={indexed_value.index} value={indexed_value.value.value}")
-    
+        print(f"[SOE] Binary index={indexed_value.index} value={indexed_value.value.value}")
+
+class BinaryOutputStatusVisitor(opendnp3.IVisitorIndexedBinaryOutputStatus):
+    def __init__(self, info):
+        super().__init__()
+        self.info = info
+
+    def OnValue(self, indexed_value):
+        print(f"[SOE] BinaryOutputStatus index={indexed_value.index} value={indexed_value.value.value}")
+
+class AnalogVisitor(opendnp3.IVisitorIndexedAnalog):
+    def __init__(self, info):
+        super().__init__()
+        self.info = info
+
+    def OnValue(self, indexed_value):
+        print(f"[SOE] Analog index={indexed_value.index} value={indexed_value.value.value}")
+
+class CounterVisitor(opendnp3.IVisitorIndexedCounter):
+    def __init__(self, info):
+        super().__init__()
+        self.info = info
+
+    def OnValue(self, indexed_value):
+        print(f"[SOE] Counter index={indexed_value.index} value={indexed_value.value.value}")
+
+class AnalogOutputStatusVisitor(opendnp3.IVisitorIndexedAnalogOutputStatus):
+    def __init__(self, info):
+        super().__init__()
+        self.info = info
+
+    def OnValue(self, indexed_value):
+        print(f"[SOE] AnalogOutputStatus index={indexed_value.index} value={indexed_value.value.value}")
+        
+        
+# --- SOE Handler ---
 
 class SOEHandler(opendnp3.ISOEHandler):
     """
-    Receives measurement updates (Sequence-Of-Events) from the outstation.
+    Receives measurement updates (Sequence-Of-Events) from the outstation
+    and routes them to the matching type visitor.
     """
 
     def Process(self, info, values):
-        visitor = BinaryVisitor(info)
-        values.Foreach(visitor)
+        if isinstance(values, opendnp3.ICollectionIndexedBinary):
+            values.Foreach(BinaryVisitor(info))
+        elif isinstance(values, opendnp3.ICollectionIndexedBinaryOutputStatus):
+            values.Foreach(BinaryOutputStatusVisitor(info))
+        elif isinstance(values, opendnp3.ICollectionIndexedAnalog):
+            values.Foreach(AnalogVisitor(info))
+        elif isinstance(values, opendnp3.ICollectionIndexedCounter):
+            values.Foreach(CounterVisitor(info))
+        elif isinstance(values, opendnp3.ICollectionIndexedAnalogOutputStatus):
+            values.Foreach(AnalogOutputStatusVisitor(info))
 
     def Start(self):
         pass
